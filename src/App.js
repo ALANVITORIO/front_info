@@ -5,14 +5,18 @@ import ProdutoDelete from './components/ProdutoDelete';
 import ProdutoAdd from './components/ProdutoAdd';
 import UpdateProduto from './components/UpDateProdut';
 
+import Footer from './Footer';
+import Header from './Header';
+
 function App() {
   return (
     <div>
-      <p>My mind forever</p>
+      <Header />
+      <ProdutoAdd />
       <ProdutoView />
       <ProdutoDelete />
-      <ProdutoAdd />
       <UpdateProduto />
+      <Footer />
     </div>
   );
 }

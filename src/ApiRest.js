@@ -24,7 +24,7 @@ export async function getProduto(id) {
 
 export async function createProduto(produto) {
   try {
-    const response = await axios.post(`${API_URL}/produtos`, produto);
+    const response = await axios.put(`${API_URL}/produtos`, produto);
     return response.data;
   } catch (error) {
     console.error('Erro ao criar produto', error);
