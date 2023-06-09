@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 import useFetch from './UseFetch';
 
 const ProdutoView = () => {
@@ -14,7 +15,7 @@ const ProdutoView = () => {
   return (
     <div>
       <h2>Produtos cadastrados</h2>
-      <table>
+      <table id="view">
         <thead>
           <tr>
             <th>Nome do livro</th>

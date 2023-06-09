@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getProduto, updateProduto } from '../ApiRest';
 import '../App.css';
 
-const ProdutoForm = () => {
+const UpdateProduto = ({ produtoId }) => {
   const [produto, setProduto] = useState({
     id: '',
     nome: '',
@@ -10,27 +11,36 @@ const ProdutoForm = () => {
     observacao: '',
   });
 
+  useEffect(() => {
+    const fetchProduto = async () => {
+      try {
+        const fetchedProduto = await getProduto(produtoId);
+        setProduto(fetchedProduto);
+      } catch (error) {
+        console.error('Erro ao buscar produto', error);
+      }
+    };
+    fetchProduto();
+  }, [produtoId]);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setProduto({ ...produto, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(produto);
+    try {
+      const updatedProduto = await updateProduto(produtoId, produto);
+      setProduto(updatedProduto);
+      alert('Produto atualizado com sucesso!');
+    } catch (error) {
+      alert('Erro ao atualizar o produto, tente novamente.');
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        ID:
-        <input
-          type="number"
-          name="id"
-          value={produto.id}
-          onChange={handleInputChange}
-        />
-      </label>
       <label>
         Nome:
         <input
@@ -67,9 +77,9 @@ const ProdutoForm = () => {
           onChange={handleInputChange}
         />
       </label>
-      <input type="submit" value="Submit" />
+      <button type="submit">Atualizar Produto</button>
     </form>
   );
 };
 
-export default ProdutoForm;
+export default UpdateProduto;
