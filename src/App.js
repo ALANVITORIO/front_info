@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import ProdutoView from './components/ProdutoView';
 import ProdutoDelete from './components/ProdutoDelete';
@@ -9,13 +9,21 @@ import Footer from './Footer';
 import Header from './Header';
 
 function App() {
+  const handleRefreshClick = () => {
+    window.location.reload();
+  };
+  const [produtoId, setProdutoId] = useState(null); // Utilizando o estado para armazenar o id do produto que será atualizado
+
   return (
     <div>
       <Header />
       <ProdutoAdd />
-      <ProdutoView />
+      <button onClick={handleRefreshClick}>Atualizar tabela</button>
+      <ProdutoView setProdutoId={setProdutoId} />
+      {produtoId && <UpdateProduto produtoId={produtoId} />}
+      <button onClick={handleRefreshClick}>Atualizar tabela</button>
       <ProdutoDelete />
-      <UpdateProduto />
+      <button onClick={handleRefreshClick}>Atualizar tabela</button>
       <Footer />
     </div>
   );

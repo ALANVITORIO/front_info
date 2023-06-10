@@ -21,11 +21,13 @@ const ProdutoDelete = () => {
   return (
     <section>
       <h2>Deletar Produto</h2>
+      <p>Para apagar o item que colocou, basta digitar o id</p>
       <form onSubmit={handleSubmit}>
         <label>
           ID do produto para deletar:
           <input
             type="number"
+            placeholder="01"
             value={id}
             onChange={handleInputChange}
             required
