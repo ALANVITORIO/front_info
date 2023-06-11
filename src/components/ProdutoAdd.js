@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createProduto } from '../ApiRest';
 import '../App.css';
-const ProdutoAdd = ({ onAdd }) => {
+const ProdutoAdd = () => {
   const [produto, setProduto] = useState({
     nome: '',
     quantidade: '',
@@ -84,7 +84,7 @@ const ProdutoAdd = ({ onAdd }) => {
             onChange={handleInputChange}
           />
         </label>
-        <button type="submit">Adicionar</button>
+        <button type="submit">Adicionar item</button>
       </form>
     </section>
   );

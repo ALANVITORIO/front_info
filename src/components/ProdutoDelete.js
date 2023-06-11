@@ -20,7 +20,7 @@ const ProdutoDelete = () => {
 
   return (
     <section>
-      <h2>Deletar Produto</h2>
+      <h2>Deletar item da tabelo por id</h2>
       <p>Para apagar o item que colocou, basta digitar o id</p>
       <form onSubmit={handleSubmit}>
         <label>
@@ -33,7 +33,7 @@ const ProdutoDelete = () => {
             required
           />
         </label>
-        <button type="submit">Deletar Produto</button>
+        <button type="submit">Deletar item</button>
       </form>
     </section>
   );

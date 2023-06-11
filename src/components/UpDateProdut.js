@@ -41,7 +41,7 @@ const UpdateProduto = ({ produtoId }) => {
 
   return (
     <section>
-      <h2>Atualizar Produto</h2>
+      <h2>Atualizar item da tabela</h2>
       <form onSubmit={handleSubmit}>
         <label>
           ID:
@@ -53,7 +53,7 @@ const UpdateProduto = ({ produtoId }) => {
           />
         </label>
         <label>
-          Nome:
+          Nome do item:
           <input
             type="text"
             name="nome"
